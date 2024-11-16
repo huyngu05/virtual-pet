@@ -30,3 +30,7 @@ class Pet:
         self.energy = min(100, self.energy + 30)  # Increase energy
         self.happiness = min(100, self.happiness + 5)  # Small happiness boost
         print(f"{self.name} is sleeping and resting.")
+
+    def get_status(self):
+        """Return the current status of the pet"""
+        return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%"
