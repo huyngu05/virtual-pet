@@ -33,6 +33,10 @@ class Pet:
         self.happiness = min(100, self.happiness + 5)  # Small happiness boost
         print(f"{self.name} is sleeping and resting.")
 
+    def reset_days_since_care(self):
+        """Reset the days since the last care action"""
+        self.days_since_last_care = 0
+
     def get_status(self):
         """Return the current status of the pet"""
         return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%"
