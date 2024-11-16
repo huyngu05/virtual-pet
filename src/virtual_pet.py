@@ -45,7 +45,7 @@ class Pet:
 
     def deteriorate_stats(self):
         """Deteriorate stats if the pet has not been cared for in a while"""
-        if self.days_since_last_care > 3:  # After 3 days without care
+        if self.days_since_last_care > 1:  # After 1 days without care
             self.hunger = min(100, self.hunger + 10)
             self.energy = max(0, self.energy - 10)
             self.happiness = max(0, self.happiness - 5)
@@ -62,6 +62,16 @@ def main():
 
     # Game loop
     while True:
+
+        # Simulate passing time
+        pet.days_since_last_care += 1
+        pet.deteriorate_stats()  # Pet stats may deteriorate due to neglect
+
+        # Aging process
+        if pet.days_since_last_care % 30 == 0:  # Age the pet once per month (30 days)
+            pet.age_pet()
+
+        # Display the menu
         print("\nWhat would you like to do?")
         print("1. Feed the pet")
         print("2. Play with the pet")
@@ -85,6 +95,8 @@ def main():
         else:
             print("Invalid choice, please select a number between 1 and 5.")
 
+# Simulate real-time waiting (1 second per action for realism)
+        time.sleep(1)
 
 if __name__ == "__main__":
     main()
