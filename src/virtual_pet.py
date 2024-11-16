@@ -1,3 +1,5 @@
+import time
+
 class Pet:
     def __init__(self, name):
         """Initialize the pet with a name and default stats"""
