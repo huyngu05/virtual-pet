@@ -37,6 +37,12 @@ class Pet:
         """Reset the days since the last care action"""
         self.days_since_last_care = 0
 
+    def age_pet(self):
+        """Age the pet over time and trigger events based on age"""
+        self.age += 1
+        if self.age % 5 == 0:  # Trigger a birthday event every 5 years
+            print(f"Happy {self.age}th Birthday, {self.name}!")
+
     def get_status(self):
         """Return the current status of the pet"""
         return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%"
