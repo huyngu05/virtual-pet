@@ -24,3 +24,9 @@ class Pet:
             print(f"{self.name} is playing!")
         else:
             print(f"{self.name} is too tired to play!")
+
+    def sleep(self):
+        """Let the pet sleep, increase energy and happiness"""
+        self.energy = min(100, self.energy + 30)  # Increase energy
+        self.happiness = min(100, self.happiness + 5)  # Small happiness boost
+        print(f"{self.name} is sleeping and resting.")
