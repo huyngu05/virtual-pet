@@ -34,3 +34,37 @@ class Pet:
     def get_status(self):
         """Return the current status of the pet"""
         return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%"
+    
+    def main():
+        # Initialize the pet object
+        pet_name = input("Enter the name of your pet: ")
+        pet = Pet(pet_name)
+
+        # Game loop
+        while True:
+            print("\nWhat would you like to do?")
+            print("1. Feed the pet")
+            print("2. Play with the pet")
+            print("3. Let the pet sleep")
+            print("4. Check pet's status")
+            print("5. Quit the game")
+
+            action = input("Choose an option (1-5): ")
+
+            if action == "1":
+                pet.feed()
+            elif action == "2":
+                pet.play()
+            elif action == "3":
+                pet.sleep()
+            elif action == "4":
+                print(pet.get_status())
+            elif action == "5":
+                print(f"Goodbye! {pet.name} will miss you!")
+                break
+            else:
+                print("Invalid choice, please select a number between 1 and 5.")
+
+
+if __name__ == "__main__":
+    main()
