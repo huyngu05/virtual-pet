@@ -45,7 +45,7 @@ class Pet:
 
     def deteriorate_stats(self):
         """Deteriorate stats if the pet has not been cared for in a while"""
-        if self.days_since_last_care > 1:  # After 1 days without care
+        if self.days_since_last_care > 2:  # After 1 days without care
             self.hunger = min(100, self.hunger + 10)
             self.energy = max(0, self.energy - 10)
             self.happiness = max(0, self.happiness - 5)
