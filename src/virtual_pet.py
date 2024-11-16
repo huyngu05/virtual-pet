@@ -7,6 +7,8 @@ class Pet:
         self.hunger = 50  # Hunger level (0-100 scale, 100 being very hungry)
         self.energy = 50  # Energy level (0-100 scale, 100 being very energetic)
         self.happiness = 50  # Happiness level (0-100 scale, 100 being very happy)
+        self.days_since_last_care = 0  # Track the number of "days" since the last care event
+
 
     def feed(self):
         """Feed the pet, decrease hunger, increase energy and happiness"""
@@ -17,6 +19,8 @@ class Pet:
             print(f"{self.name} has been fed.")
         else:
             print(f"{self.name} is not hungry!")
+        self.reset_days_since_care()
+
 
     def play(self):
         """Play with the pet, decrease energy, increase happiness"""
@@ -26,12 +30,16 @@ class Pet:
             print(f"{self.name} is playing!")
         else:
             print(f"{self.name} is too tired to play!")
+        self.reset_days_since_care()
+
 
     def sleep(self):
         """Let the pet sleep, increase energy and happiness"""
         self.energy = min(100, self.energy + 30)  # Increase energy
         self.happiness = min(100, self.happiness + 5)  # Small happiness boost
         print(f"{self.name} is sleeping and resting.")
+        self.reset_days_since_care()
+
 
     def reset_days_since_care(self):
         """Reset the days since the last care action"""
@@ -45,7 +53,7 @@ class Pet:
 
     def deteriorate_stats(self):
         """Deteriorate stats if the pet has not been cared for in a while"""
-        if self.days_since_last_care > 2:  # After 1 days without care
+        if self.days_since_last_care > 3:  # After 3 days without care
             self.hunger = min(100, self.hunger + 10)
             self.energy = max(0, self.energy - 10)
             self.happiness = max(0, self.happiness - 5)
@@ -62,9 +70,8 @@ def main():
 
     # Game loop
     while True:
-
         # Simulate passing time
-        pet.days_since_last_care += 1
+        pet.days_since_last_care += 2
         pet.deteriorate_stats()  # Pet stats may deteriorate due to neglect
 
         # Aging process
