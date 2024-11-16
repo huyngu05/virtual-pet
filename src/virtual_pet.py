@@ -15,3 +15,12 @@ class Pet:
             print(f"{self.name} has been fed.")
         else:
             print(f"{self.name} is not hungry!")
+
+    def play(self):
+        """Play with the pet, decrease energy, increase happiness"""
+        if self.energy > 0:
+            self.energy -= 20  # Decrease energy
+            self.happiness = min(100, self.happiness + 20)  # Increase happiness
+            print(f"{self.name} is playing!")
+        else:
+            print(f"{self.name} is too tired to play!")
