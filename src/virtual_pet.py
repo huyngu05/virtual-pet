@@ -43,6 +43,14 @@ class Pet:
         if self.age % 5 == 0:  # Trigger a birthday event every 5 years
             print(f"Happy {self.age}th Birthday, {self.name}!")
 
+    def deteriorate_stats(self):
+        """Deteriorate stats if the pet has not been cared for in a while"""
+        if self.days_since_last_care > 3:  # After 3 days without care
+            self.hunger = min(100, self.hunger + 10)
+            self.energy = max(0, self.energy - 10)
+            self.happiness = max(0, self.happiness - 5)
+            print(f"{self.name} is feeling worse due to neglect!")
+
     def get_status(self):
         """Return the current status of the pet"""
         return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%"
