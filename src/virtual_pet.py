@@ -8,6 +8,8 @@ class Pet:
         self.energy = 50  # Energy level (0-100 scale, 100 being very energetic)
         self.happiness = 50  # Happiness level (0-100 scale, 100 being very happy)
         self.days_since_last_care = 0  # Track the number of "days" since the last care event
+        self.age = 0  # Pet's age (starting from 0 years)
+        
 
 
     def feed(self):
@@ -72,9 +74,6 @@ class Pet:
         """Return the current status of the pet"""
         return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%\nAge: {self.age} years"
 
-    def get_status(self):
-        """Return the current status of the pet"""
-        return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%"
     
 def main():
     # Initialize the pet object
