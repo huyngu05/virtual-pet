@@ -79,10 +79,41 @@ class Pet:
             return f"Tired {self.name}: Zzz... \n  |   |\n  |   |\n / \\"
         else:
             return f"Happy {self.name}: :D \n  |   |\n / \\ / \\"
+        
+    def save_pet(self, filename="pet_state.json"):
+        """Save the pet's state to a file"""
+        pet_data = {
+            "name": self.name,
+            "hunger": self.hunger,
+            "energy": self.energy,
+            "happiness": self.happiness,
+            "age": self.age,
+            "days_since_last_care": self.days_since_last_care
+        }
+        with open(filename, "w") as f:
+            json.dump(pet_data, f)
+        print(f"Pet state saved to {filename}.")
+
+    def load_pet(self, filename="pet_state.json"):
+        """Load the pet's state from a file"""
+        try:
+            with open(filename, "r") as f:
+                pet_data = json.load(f)
+                self.name = pet_data["name"]
+                self.hunger = pet_data["hunger"]
+                self.energy = pet_data["energy"]
+                self.happiness = pet_data["happiness"]
+                self.age = pet_data["age"]
+                self.days_since_last_care = pet_data["days_since_last_care"]
+            print(f"Pet state loaded from {filename}.")
+        except FileNotFoundError:
+            print("No saved pet state found.")
 
     def get_status(self):
         """Return the current status of the pet"""
         return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%\nAge: {self.age} years"
+    
+
 
     
 def main():
@@ -110,8 +141,10 @@ def main():
         print("3. Let the pet sleep")
         print("4. Check pet's status")
         print("5. Quit the game")
+        print("6. Load saved game")
+        print("7. Quit the game")
 
-        action = input("Choose an option (1-5): ")
+        action = input("Choose an option (1-7): ")
 
         if action == "1":
             pet.feed()
@@ -122,10 +155,14 @@ def main():
         elif action == "4":
             print(pet.get_status())
         elif action == "5":
+            pet.save_pet()
+        elif action == "6":
+            pet.load_pet()
+        elif action == "7":
             print(f"Goodbye! {pet.name} will miss you!")
             break
         else:
-            print("Invalid choice, please select a number between 1 and 5.")
+            print("Invalid choice, please select a number between 1 and 7.")
 
 # Simulate real-time waiting (1 second per action for realism)
         time.sleep(1)
