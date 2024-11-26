@@ -149,7 +149,44 @@ class PetGUI:
         self.master = master
         self.master.title("Virtual Pet Simulator")
         self.pet = None
-    
+
+        # Setup labels and buttons
+        self.pet_name_label = tk.Label(self.master, text="Enter the name of your pet: ")
+        self.pet_name_label.pack()
+
+        self.pet_name_entry = tk.Entry(self.master)
+        self.pet_name_entry.pack()
+
+        self.start_button = tk.Button(self.master, text="Start Game", command=self.start_game)
+        self.start_button.pack()
+
+        self.action_label = tk.Label(self.master, text="")
+        self.action_label.pack()
+
+        self.status_label = tk.Label(self.master, text="")
+        self.status_label.pack()
+
+        self.pet_ascii_label = tk.Label(self.master, text="")
+        self.pet_ascii_label.pack()
+
+        # Action buttons
+        self.feed_button = tk.Button(self.master, text="Feed", state=tk.DISABLED, command=self.feed_pet)
+        self.feed_button.pack()
+
+        self.play_button = tk.Button(self.master, text="Play", state=tk.DISABLED, command=self.play_pet)
+        self.play_button.pack()
+
+        self.sleep_button = tk.Button(self.master, text="Sleep", state=tk.DISABLED, command=self.sleep_pet)
+        self.sleep_button.pack()
+
+        self.save_button = tk.Button(self.master, text="Save", state=tk.DISABLED, command=self.save_game)
+        self.save_button.pack()
+
+        self.load_button = tk.Button(self.master, text="Load", state=tk.DISABLED, command=self.load_game)
+        self.load_button.pack()
+
+        self.quit_button = tk.Button(self.master, text="Quit", command=self.quit_game)
+        self.quit_button.pack()
 
 def main():
     # Initialize the pet object
