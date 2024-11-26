@@ -1,5 +1,7 @@
 import time
 import json
+import random
+
 
 class Pet:
     def __init__(self, name):
