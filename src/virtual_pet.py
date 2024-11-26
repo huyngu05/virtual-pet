@@ -140,7 +140,7 @@ def main():
         print("2. Play with the pet")
         print("3. Let the pet sleep")
         print("4. Check pet's status")
-        print("5. Quit the game")
+        print("5. Save the game")
         print("6. Load saved game")
         print("7. Quit the game")
 
