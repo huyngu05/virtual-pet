@@ -70,6 +70,10 @@ class Pet:
 
     def get_status(self):
         """Return the current status of the pet"""
+        return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%\nAge: {self.age} years"
+
+    def get_status(self):
+        """Return the current status of the pet"""
         return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%"
     
 def main():
