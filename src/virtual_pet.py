@@ -10,6 +10,7 @@ class Pet:
         self.happiness = 50  # Happiness level (0-100 scale, 100 being very happy)
         self.days_since_last_care = 0  # Track the number of "days" since the last care event
         self.age = 0  # Pet's age (starting from 0 years)
+        self.is_sick = False
 
 
 
@@ -61,6 +62,12 @@ class Pet:
             self.energy = max(0, self.energy - 10)
             self.happiness = max(0, self.happiness - 5)
             print(f"{self.name} is feeling worse due to neglect!")
+
+        # Chance of pet getting sick over time
+        if self.days_since_last_care > 5:
+            if random.random() < 0.1:  # 10% chance of getting sick
+                self.is_sick = True
+                print(f"Oh no! {self.name} is sick!")
 
     def check_needs(self):
         """Check if pet's stats are too low and notify the user"""
