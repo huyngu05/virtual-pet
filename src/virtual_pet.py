@@ -117,8 +117,9 @@ class Pet:
             print("No saved pet state found.")
 
     def get_status(self):
-        """Return the current status of the pet"""
-        return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%\nAge: {self.age} years"
+        """Display current pet status"""
+        sickness_status = "Sick" if self.is_sick else "Healthy"
+        return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%\nAge: {self.age}\nSickness: {sickness_status}"
     
 
 
