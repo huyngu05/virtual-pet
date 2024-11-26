@@ -88,13 +88,25 @@ class Pet:
             print(f"{self.name} looks sad. Play with it to make it happy.")
 
     def get_ascii_art(self):
-        """Get an ASCII art representation of the pet based on its stats"""
-        if self.happiness < 30:
-            return f"Sad {self.name}: :( \n  |   |\n / \\ / \\"
-        elif self.energy < 30:
-            return f"Tired {self.name}: Zzz... \n  |   |\n  |   |\n / \\"
+        """Return ASCII art based on pet's happiness"""
+        if self.happiness >= 70:
+            return """
+             (\(o)>
+             \_  O  )    
+              |  |    
+            """
+        elif self.happiness <= 30:
+            return """
+             :( 
+            /|\  |     
+             |   |  
+            """
         else:
-            return f"Happy {self.name}: :D \n  |   |\n / \\ / \\"
+            return """
+             (^_^) 
+            /|  |    
+             |  |    
+            """
         
     def save_pet(self, filename="pet_state.json"):
         """Save the pet's state to a file"""
