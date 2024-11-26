@@ -59,6 +59,15 @@ class Pet:
             self.happiness = max(0, self.happiness - 5)
             print(f"{self.name} is feeling worse due to neglect!")
 
+    def check_needs(self):
+        """Check if pet's stats are too low and notify the user"""
+        if self.hunger > 80:
+            print(f"{self.name} is extremely hungry! Please feed it soon.")
+        elif self.energy < 20:
+            print(f"{self.name} is very tired! It needs some rest.")
+        elif self.happiness < 20:
+            print(f"{self.name} looks sad. Play with it to make it happy.")
+
     def get_status(self):
         """Return the current status of the pet"""
         return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%"
