@@ -1,4 +1,5 @@
 import time
+import json
 
 class Pet:
     def __init__(self, name):
@@ -9,7 +10,7 @@ class Pet:
         self.happiness = 50  # Happiness level (0-100 scale, 100 being very happy)
         self.days_since_last_care = 0  # Track the number of "days" since the last care event
         self.age = 0  # Pet's age (starting from 0 years)
-        
+
 
 
     def feed(self):
@@ -70,6 +71,15 @@ class Pet:
         elif self.happiness < 20:
             print(f"{self.name} looks sad. Play with it to make it happy.")
 
+    def get_ascii_art(self):
+        """Get an ASCII art representation of the pet based on its stats"""
+        if self.happiness < 30:
+            return f"Sad {self.name}: :( \n  |   |\n / \\ / \\"
+        elif self.energy < 30:
+            return f"Tired {self.name}: Zzz... \n  |   |\n  |   |\n / \\"
+        else:
+            return f"Happy {self.name}: :D \n  |   |\n / \\ / \\"
+
     def get_status(self):
         """Return the current status of the pet"""
         return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%\nAge: {self.age} years"
@@ -82,6 +92,9 @@ def main():
 
     # Game loop
     while True:
+        # Display pet's ASCII art
+        print(pet.get_ascii_art())
+
         # Simulate passing time
         pet.days_since_last_care += 2
         pet.deteriorate_stats()  # Pet stats may deteriorate due to neglect
