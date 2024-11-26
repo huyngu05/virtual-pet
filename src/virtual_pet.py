@@ -50,10 +50,17 @@ class Pet:
         self.days_since_last_care = 0
 
     def age_pet(self):
-        """Age the pet over time and trigger events based on age"""
+        """Aging the pet with dynamic milestones"""
         self.age += 1
-        if self.age % 5 == 0:  # Trigger a birthday event every 5 years
-            print(f"Happy {self.age}th Birthday, {self.name}!")
+        if self.age == 3:
+            print(f"{self.name} is now a young adult!")
+        elif self.age == 7:
+            print(f"{self.name} is becoming an older pet.")
+        elif self.age == 10:
+            print(f"{self.name} has reached senior status!")
+        if self.age % 5 == 0:
+            print(f"Happy {self.age}th birthday, {self.name}!")
+
 
     def deteriorate_stats(self):
         """Deteriorate stats if the pet has not been cared for in a while"""
@@ -122,8 +129,6 @@ class Pet:
         return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%\nAge: {self.age}\nSickness: {sickness_status}"
     
 
-
-    
 def main():
     # Initialize the pet object
     pet_name = input("Enter the name of your pet: ")
