@@ -226,6 +226,26 @@ class PetGUI:
             self.action_label.config(text=action)
             self.update_status()
 
+    def sleep_pet(self):
+        if self.pet:
+            action = self.pet.sleep()
+            self.action_label.config(text=action)
+            self.update_status()
+
+    def save_game(self):
+        if self.pet:
+            self.pet.save_pet()
+            self.action_label.config(text=f"{self.pet.name}'s state has been saved.")
+
+    def load_game(self):
+        if self.pet:
+            self.pet.load_pet()
+            self.action_label.config(text=f"{self.pet.name}'s state has been loaded.")
+            self.update_status()
+
+    def quit_game(self):
+        self.master.quit()
+
 def main():
     # Initialize the pet object
     pet_name = input("Enter the name of your pet: ")
