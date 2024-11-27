@@ -247,55 +247,9 @@ class PetGUI:
         self.master.quit()
 
 def main():
-    # Initialize the pet object
-    pet_name = input("Enter the name of your pet: ")
-    pet = Pet(pet_name)
-
-    # Game loop
-    while True:
-        # Display pet's ASCII art
-        print(pet.get_ascii_art())
-
-        # Simulate passing time
-        pet.days_since_last_care += 2
-        pet.deteriorate_stats()  # Pet stats may deteriorate due to neglect
-
-        # Aging process
-        if pet.days_since_last_care % 30 == 0:  # Age the pet once per month (30 days)
-            pet.age_pet()
-
-        # Display the menu
-        print("\nWhat would you like to do?")
-        print("1. Feed the pet")
-        print("2. Play with the pet")
-        print("3. Let the pet sleep")
-        print("4. Check pet's status")
-        print("5. Save the game")
-        print("6. Load saved game")
-        print("7. Quit the game")
-
-        action = input("Choose an option (1-7): ")
-
-        if action == "1":
-            pet.feed()
-        elif action == "2":
-            pet.play()
-        elif action == "3":
-            pet.sleep()
-        elif action == "4":
-            print(pet.get_status())
-        elif action == "5":
-            pet.save_pet()
-        elif action == "6":
-            pet.load_pet()
-        elif action == "7":
-            print(f"Goodbye! {pet.name} will miss you!")
-            break
-        else:
-            print("Invalid choice, please select a number between 1 and 7.")
-
-# Simulate real-time waiting (1 second per action for realism)
-        time.sleep(1)
+    root = tk.Tk()
+    pet_gui = PetGUI(root)
+    root.mainloop()
 
 if __name__ == "__main__":
     main()
