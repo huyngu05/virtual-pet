@@ -56,12 +56,27 @@ class Pet:
         self.age += 1
         if self.age == 3:
             print(f"{self.name} is now a young adult!")
-        elif self.age == 7:
-            print(f"{self.name} is becoming an older pet.")
-        elif self.age == 10:
-            print(f"{self.name} has reached senior status!")
+        elif self.age == 6:
+            print(f"{self.name} is in the prime of their life!")
+        elif self.age == 9:
+            print(f"{self.name} is becoming a senior pet.")
+        elif self.age == 12:
+            print(f"{self.name} is now a senior pet!")
+        
+        # Additional milestones every 5 years
         if self.age % 5 == 0:
             print(f"Happy {self.age}th birthday, {self.name}!")
+        
+        # Aging effects for older pets
+        if self.age >= 10:
+            self.energy = max(0, self.energy - 5)  # Reduced energy as the pet gets older
+            self.happiness = max(0, self.happiness - 3)  # Less happiness for senior pets
+            print(f"{self.name} is feeling a bit slower as they age.")
+        
+        # Prevent the pet from aging forever (set a maximum age)
+        if self.age >= 15:
+            print(f"{self.name} has lived a long and fulfilling life!")
+        
 
 
     def deteriorate_stats(self):
