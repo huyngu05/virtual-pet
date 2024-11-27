@@ -221,6 +221,16 @@ class PetGUI:
         self.happiness_bar = ttk.Progressbar(self.master, length=200, maximum=100, mode='determinate')
         self.happiness_bar.pack()
 
+        # Add text labels next to each progress bar to display current values
+        self.hunger_text = tk.Label(self.master, text="Hunger: 50")
+        self.hunger_text.pack()
+
+        self.energy_text = tk.Label(self.master, text="Energy: 50")
+        self.energy_text.pack()
+
+        self.happiness_text = tk.Label(self.master, text="Happiness: 50")
+        self.happiness_text.pack()
+
         # Add Age Label
         self.age_label = tk.Label(self.master, text="Age: 0 years")
         self.age_label.pack()
@@ -259,15 +269,20 @@ class PetGUI:
             self.update_status()
 
     def update_status(self):
-        # Update progress bars
+        # Update progress bars and text labels
         self.hunger_bar.config(value=self.pet.hunger)
+        self.hunger_text.config(text=f"Hunger: {self.pet.hunger}")
+        
         self.energy_bar.config(value=self.pet.energy)
+        self.energy_text.config(text=f"Energy: {self.pet.energy}")
+        
         self.happiness_bar.config(value=self.pet.happiness)
+        self.happiness_text.config(text=f"Happiness: {self.pet.happiness}")
 
         # Update the pet's age and milestones
         milestone_message = self.pet.age_pet()
         self.age_label.config(text=f"Age: {self.pet.age} years")
-        
+
         # Show milestone message and update ASCII art
         status_message = self.pet.check_needs() + " " + milestone_message
         ascii_art = self.pet.get_ascii_art()
