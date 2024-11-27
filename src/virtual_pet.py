@@ -51,6 +51,12 @@ class Pet:
         """Reset the days since the last care action"""
         self.days_since_last_care = 0
 
+    def check_age(self):
+        """Increment the pet's age after a certain number of actions"""
+        if self.action_count >= 5:  # After 5 actions, increment age
+            self.age_pet()
+            self.action_count = 0  # Reset action count after aging the pet
+
     def age_pet(self):
         """Aging the pet with dynamic milestones"""
         self.age += 1
@@ -240,8 +246,8 @@ class PetGUI:
             self.status_label.config(text=action)
             self.pet_ascii_label.config(text=self.pet.get_ascii_art())
 
-            # Update the pet status every 5 seconds
-            self.master.after(5000, self.update_status)
+            # Update the pet status every 10 seconds
+            self.master.after(10000, self.update_status)
 
     def feed_pet(self):
         if self.pet:
