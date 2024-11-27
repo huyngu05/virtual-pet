@@ -244,7 +244,8 @@ class PetGUI:
             self.update_status()
 
     def update_status(self):
-        status_message = self.pet.check_needs()
+        # Create a string for status message, including age
+        status_message = f"{self.pet.check_needs()}\nAge: {self.pet.age} years"
         ascii_art = self.pet.get_ascii_art()
         self.status_label.config(text=status_message)
         self.pet_ascii_label.config(text=ascii_art)
