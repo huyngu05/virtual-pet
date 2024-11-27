@@ -214,6 +214,18 @@ class PetGUI:
             # Update the pet status every 2 seconds
             self.master.after(2000, self.update_status)
 
+    def feed_pet(self):
+        if self.pet:
+            action = self.pet.feed()
+            self.action_label.config(text=action)
+            self.update_status()
+
+    def play_pet(self):
+        if self.pet:
+            action = self.pet.play()
+            self.action_label.config(text=action)
+            self.update_status()
+
 def main():
     # Initialize the pet object
     pet_name = input("Enter the name of your pet: ")
