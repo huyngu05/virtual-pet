@@ -95,12 +95,21 @@ class Pet:
 
     def check_needs(self):
         """Check if pet's stats are too low and notify the user"""
-        if self.hunger > 80:
-            print(f"{self.name} is extremely hungry! Please feed it soon.")
-        elif self.energy < 20:
-            print(f"{self.name} is very tired! It needs some rest.")
-        elif self.happiness < 20:
-            print(f"{self.name} looks sad. Play with it to make it happy.")
+        if self.age >= 10:  # Senior pet needs extra care
+            if self.hunger > 70:
+                return f"{self.name} is extremely hungry! Senior pets need more food."
+            elif self.energy < 30:
+                return f"{self.name} is very tired! Senior pets need extra rest."
+            elif self.happiness < 30:
+                return f"{self.name} looks sad. Senior pets need more love and playtime."
+        elif self.age < 3:  # Young pets are more energetic
+            if self.energy < 40:
+                return f"{self.name} seems low on energy! Young pets are usually active."
+            elif self.happiness < 50:
+                return f"{self.name} is a bit sad. Play with them to boost their mood."
+        else:
+            # Default care for pets in the middle of their life
+            return f"{self.name} is doing well. Keep up the good work!"
 
     def get_ascii_art(self):
         """Return ASCII art based on pet's happiness"""
