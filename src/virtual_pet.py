@@ -257,8 +257,14 @@ class PetGUI:
             self.update_status()
 
     def update_status(self):
-        # Create a string for status message, including age
-        status_message = f"{self.pet.check_needs()}\nAge: {self.pet.age} years"
+        # Update the stat labels with the pet's current values
+        self.hunger_label.config(text=f"Hunger: {self.pet.hunger}")
+        self.energy_label.config(text=f"Energy: {self.pet.energy}")
+        self.happiness_label.config(text=f"Happiness: {self.pet.happiness}")
+        self.age_label.config(text=f"Age: {self.pet.age} years")
+
+        # Create a string for status message
+        status_message = self.pet.check_needs()
         ascii_art = self.pet.get_ascii_art()
         self.status_label.config(text=status_message)
         self.pet_ascii_label.config(text=ascii_art)
