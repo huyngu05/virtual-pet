@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 import json
 import random
 
@@ -210,18 +211,15 @@ class PetGUI:
         self.pet_ascii_label = tk.Label(self.master, text="")
         self.pet_ascii_label.pack()
 
-        # Add stat labels
-        self.hunger_label = tk.Label(self.master, text="Hunger: 50")
-        self.hunger_label.pack()
-
-        self.energy_label = tk.Label(self.master, text="Energy: 50")
-        self.energy_label.pack()
-
-        self.happiness_label = tk.Label(self.master, text="Happiness: 50")
-        self.happiness_label.pack()
-
-        self.age_label = tk.Label(self.master, text="Age: 0 years")
-        self.age_label.pack()
+       # Add stat progress bars
+        self.hunger_bar = ttk.Progressbar(self.master, length=200, maximum=100, mode='determinate')
+        self.hunger_bar.pack()
+        
+        self.energy_bar = ttk.Progressbar(self.master, length=200, maximum=100, mode='determinate')
+        self.energy_bar.pack()
+        
+        self.happiness_bar = ttk.Progressbar(self.master, length=200, maximum=100, mode='determinate')
+        self.happiness_bar.pack()
 
         # Action buttons
         self.feed_button = tk.Button(self.master, text="Feed", state=tk.DISABLED, command=self.feed_pet)
