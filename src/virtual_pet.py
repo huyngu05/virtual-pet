@@ -188,6 +188,22 @@ class PetGUI:
         self.quit_button = tk.Button(self.master, text="Quit", command=self.quit_game)
         self.quit_button.pack()
 
+    def start_game(self):
+        pet_name = self.pet_name_entry.get()
+        if pet_name:
+            self.pet = Pet(pet_name)
+            self.pet_name_label.config(text=f"Pet name: {self.pet.name}")
+            self.start_button.config(state=tk.DISABLED)
+            self.pet_name_entry.config(state=tk.DISABLED)
+            self.feed_button.config(state=tk.NORMAL)
+            self.play_button.config(state=tk.NORMAL)
+            self.sleep_button.config(state=tk.NORMAL)
+            self.save_button.config(state=tk.NORMAL)
+            self.load_button.config(state=tk.NORMAL)
+            self.update_status()
+
+    
+
 def main():
     # Initialize the pet object
     pet_name = input("Enter the name of your pet: ")
