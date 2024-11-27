@@ -221,6 +221,10 @@ class PetGUI:
         self.happiness_bar = ttk.Progressbar(self.master, length=200, maximum=100, mode='determinate')
         self.happiness_bar.pack()
 
+        # Add Age Label
+        self.age_label = tk.Label(self.master, text="Age: 0 years")
+        self.age_label.pack()
+
         # Action buttons
         self.feed_button = tk.Button(self.master, text="Feed", state=tk.DISABLED, command=self.feed_pet)
         self.feed_button.pack()
@@ -255,15 +259,19 @@ class PetGUI:
             self.update_status()
 
     def update_status(self):
-        # Update the stat labels with the pet's current values
-        self.hunger_label.config(text=f"Hunger: {self.pet.hunger}")
-        self.energy_label.config(text=f"Energy: {self.pet.energy}")
-        self.happiness_label.config(text=f"Happiness: {self.pet.happiness}")
-        self.age_label.config(text=f"Age: {self.pet.age} years")
+        # Update progress bars
+        self.hunger_bar.config(value=self.pet.hunger)
+        self.energy_bar.config(value=self.pet.energy)
+        self.happiness_bar.config(value=self.pet.happiness)
 
-        # Create a string for status message
-        status_message = self.pet.check_needs()
+        # Update the pet's age and milestones
+        milestone_message = self.pet.age_pet()
+        self.age_label.config(text=f"Age: {self.pet.age} years")
+        
+        # Show milestone message and update ASCII art
+        status_message = self.pet.check_needs() + " " + milestone_message
         ascii_art = self.pet.get_ascii_art()
+
         self.status_label.config(text=status_message)
         self.pet_ascii_label.config(text=ascii_art)
 
