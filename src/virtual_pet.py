@@ -137,11 +137,7 @@ class Pet:
             print(f"Pet state loaded from {filename}.")
         except FileNotFoundError:
             print("No saved pet state found.")
-
-    def get_status(self):
-        """Display current pet status"""
-        sickness_status = "Sick" if self.is_sick else "Healthy"
-        return f"{self.name}'s Status:\nHunger: {self.hunger}%\nEnergy: {self.energy}%\nHappiness: {self.happiness}%\nAge: {self.age}\nSickness: {sickness_status}"
+            
 
 # GUI
 class PetGUI:
