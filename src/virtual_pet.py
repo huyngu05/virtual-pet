@@ -104,6 +104,13 @@ class Pet:
 
     def get_ascii_art(self):
         """Return ASCII art based on pet's happiness"""
+        if self.age >= 10:  # Older pets look different
+            return """
+             (x_x)
+            /|  |  
+             |  |  
+            """
+
         if self.happiness >= 70:
             return """
              (\(o)>
