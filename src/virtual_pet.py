@@ -1,5 +1,4 @@
 import tkinter as tk
-import time
 import json
 import random
 
@@ -137,7 +136,7 @@ class Pet:
             print(f"Pet state loaded from {filename}.")
         except FileNotFoundError:
             print("No saved pet state found.")
-            
+
 
 # GUI
 class PetGUI:
