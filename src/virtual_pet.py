@@ -13,6 +13,7 @@ class Pet:
         self.days_since_last_care = 0  # Track the number of "days" since the last care event
         self.age = 0  # Pet's age (starting from 0 years)
         self.is_sick = False
+        self.action_count = 0  # Track the number of actions performed (feeding, playing, etc.)
 
 
 
