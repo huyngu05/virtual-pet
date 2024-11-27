@@ -54,18 +54,20 @@ class Pet:
     def age_pet(self):
         """Aging the pet with dynamic milestones"""
         self.age += 1
+        milestone_message = ""
+        
         if self.age == 3:
-            print(f"{self.name} is now a young adult!")
+            milestone_message = f"{self.name} is now a young adult!"
         elif self.age == 6:
-            print(f"{self.name} is in the prime of their life!")
+            milestone_message = f"{self.name} is in the prime of their life!"
         elif self.age == 9:
-            print(f"{self.name} is becoming a senior pet.")
+            milestone_message = f"{self.name} is becoming a senior pet."
         elif self.age == 12:
-            print(f"{self.name} is now a senior pet!")
+            milestone_message = f"{self.name} is now a senior pet!"
         
         # Additional milestones every 5 years
         if self.age % 5 == 0:
-            print(f"Happy {self.age}th birthday, {self.name}!")
+            milestone_message = f"Happy {self.age}th birthday, {self.name}!"
         
         # Aging effects for older pets
         if self.age >= 10:
@@ -77,7 +79,7 @@ class Pet:
         if self.age >= 15:
             print(f"{self.name} has lived a long and fulfilling life!")
         
-
+        return milestone_message
 
     def deteriorate_stats(self):
         """Deteriorate stats if the pet has not been cared for in a while"""
