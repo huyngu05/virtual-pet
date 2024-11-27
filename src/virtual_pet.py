@@ -27,6 +27,8 @@ class Pet:
         else:
             print(f"{self.name} is not hungry!")
         self.reset_days_since_care()
+        self.action_count += 1  # Increment action count
+        self.check_age()
 
 
     def play(self):
@@ -38,6 +40,8 @@ class Pet:
         else:
             print(f"{self.name} is too tired to play!")
         self.reset_days_since_care()
+        self.action_count += 1  # Increment action count
+        self.check_age()
 
 
     def sleep(self):
@@ -46,6 +50,8 @@ class Pet:
         self.happiness = min(100, self.happiness + 5)  # Small happiness boost
         print(f"{self.name} is sleeping and resting.")
         self.reset_days_since_care()
+        self.action_count += 1  # Increment action count
+        self.check_age()
 
 
     def reset_days_since_care(self):
