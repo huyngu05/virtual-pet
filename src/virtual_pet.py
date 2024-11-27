@@ -234,13 +234,14 @@ class PetGUI:
         if self.pet:
             # Update pet stats and ASCII art
             self.pet.deteriorate_stats()
-            action = self.pet.age_pet()
-            self.action_label.config(text=action)
-            self.status_label.config(text=self.pet.check_needs())
+            milestone_message = self.pet.age_pet()  # Get any age-related milestone messages
+            action = self.pet.check_needs()
+            self.action_label.config(text=milestone_message)
+            self.status_label.config(text=action)
             self.pet_ascii_label.config(text=self.pet.get_ascii_art())
 
-            # Update the pet status every 2 seconds
-            self.master.after(2000, self.update_status)
+            # Update the pet status every 5 seconds
+            self.master.after(5000, self.update_status)
 
     def feed_pet(self):
         if self.pet:
