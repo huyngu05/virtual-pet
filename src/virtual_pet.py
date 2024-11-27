@@ -202,7 +202,17 @@ class PetGUI:
             self.load_button.config(state=tk.NORMAL)
             self.update_status()
 
-    
+    def update_status(self):
+        if self.pet:
+            # Update pet stats and ASCII art
+            self.pet.deteriorate_stats()
+            action = self.pet.age_pet()
+            self.action_label.config(text=action)
+            self.status_label.config(text=self.pet.check_needs())
+            self.pet_ascii_label.config(text=self.pet.get_ascii_art())
+
+            # Update the pet status every 2 seconds
+            self.master.after(2000, self.update_status)
 
 def main():
     # Initialize the pet object
