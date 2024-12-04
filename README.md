@@ -51,12 +51,5 @@ The **Virtual Pet Simulator** is a fun, interactive game where users take care o
 - Implement **multiple pets** with different needs and personalities.
 - Build a simple **GUI** for better interaction (using `tkinter` or similar).
 
-## Contributing
-
-Feel free to fork this repository, open an issue, or submit a pull request if you'd like to contribute to the project. 
-
-If you have ideas or improvements, they are always welcome!
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### Video URL
+- https://youtu.be/H7kMAsQa5oQ
